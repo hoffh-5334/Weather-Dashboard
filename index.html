@@ -4,34 +4,49 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  />
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="./assets/css/style.css">
-
-
-  <title>5 Day Weather Forecast </title>
+  <link rel="stylesheet" href="./assets/css/style.css"/>
+  <title>5 Day Weather Dashboard</title>
 </head>
 <body>
-  <main class="main">
-    <div class="column col-12">
-      <div class="col-12 col-md-4">
+  <header class="container-fluid">
+    <h1>Weather Dashboard</h1>
+  </header>
 
-        <div class="card">
-          <h3 class="card-header">Search By City</h3>
-          <form id="city-form" class="card-body">
-            <label class="form-lable" for="cityname">City Name</label>
-            <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
-            <button type="submit" class="btn">Get Weather</button>
-          </form>
-        </div>
-
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-3 text-left">
+        <h2>Search for a City:</h2>
+        <input type="city" class="form-control" id="enterCity" placeholder="Green Bay">
+        <div id="lineBreak"></div>
+        <button type="button" class="btn btn-primary" id="primary">Search</button>
+        
       </div>
 
-  </main>
+      <div class="col-9">
+        <div class="current-weather">
+          <div id="cityDate">
+            <div id="weather-items"></div>
+          </div>
+          
+        </div>
+          <h4>5-Day Forecast:</h4>
+          <div class="row forecast-row">
+          
+      </div>
 
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        
+  
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Moment.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  <script src="./Assets/js/script.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
