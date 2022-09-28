@@ -3,8 +3,9 @@ const weatherDays = [];
 let currentDay = null;
 let todaysDate = moment().format("M/DD/YYYY");
 
-let forecastDisplay = "";
-let currentDisplay = "";
+let fiveDayForecast = "";
+let curWeatherDisplay = "";
+let recentCities = "";
 
 
 
@@ -23,10 +24,12 @@ function getAPI(city) {
     console.log(data);
     forecast(data.list)
     currentWeather(data.list)
-        
-      })
-    }
+     
+    
+  })
+}
 
+// displays the current weather for city searched
 function currentWeather(data) {
   curWeatherDisplay = `
     <div id="forecast-icon">
@@ -38,15 +41,15 @@ function currentWeather(data) {
       <p> Wind Speed: ${data[0].wind.speed} MPH </p>
     </div>`
 
-    $("#weather-items").append(curWeatherDisplay);
+    $("#weatherForecast").append(curWeatherDisplay);
 
 } 
-
+//displays 5 day forecast for the city searched
     function forecast(data) {
   
       for (let i = 1; i < data.length; i += 8) {
     
-        forecastDisplay += `
+        fiveDayForecast += `
         <div class="col-2">
         <h5> ${data[i].dt_txt} </h5>
           <div id="forecast-icon">
@@ -57,7 +60,7 @@ function currentWeather(data) {
             <p> Wind Speed: ${data[i].wind.speed} MPH </p>
         </div>`
       }
-      $(".forecast-row").append(forecastDisplay);
+      $(".forecast5day").append(fiveDayForecast);
 
       console.log(data)
     }
