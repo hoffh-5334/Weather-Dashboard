@@ -16,19 +16,24 @@
 </head>
 <body>
   <header class="container-fluid">
-    <h1>Weather Dashboard</h1>
+    <h1>Your 5 Day Weather Forecast</h1>
   </header>
-
+    
   <div class="container-fluid">
     <div class="row">
+
+      <!-- search -->
       <div class="col-3 text-left">
         <h2>Search for a City:</h2>
         <input type="city" class="form-control" id="enterCity" placeholder="Green Bay">
         <div id="lineBreak"></div>
         <button type="button" class="btn btn-primary" id="primary">Search</button>
+      
+        <!-- Recently Searched -->
+        <div id="storeCity"></div>
         
       </div>
-
+      <!--shows current weather  -->
       <div class="col-9">
         <div class="current-weather">
           <div id="cityDate">
