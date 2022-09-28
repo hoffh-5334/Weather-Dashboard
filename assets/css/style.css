@@ -6,12 +6,17 @@ body{
   background-color: rgb(107, 204, 188);
 }
 
-.forecast5day{
+.col-2{
   background-color: white;
+  border: 3px solid black;
+  border-radius: 15px;
+  margin-right: 3px;
 }
 
-.col-2{
+.current-weather{
+  justify-items: center;
+  background-color: white;
   border: 3px solid black;
+  border-radius: 15px;
   margin-right: 3px;
-
 }
