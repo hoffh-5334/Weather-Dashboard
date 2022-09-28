@@ -65,18 +65,32 @@ function currentWeather(data) {
       console.log(data)
     }
 
+// Store searched city in local storage and add to secondary button 
+// there is is a bug here that stores the data to the screen as well - need to fix
+function storeCity(location) {
+  localStorage.setItem("City Name", location)
+
+  recentCities = `
+    <button type="button" class="btn btn-secondary" id="store1">${location}</button>
+  `
+  $("#storeCity").append(recentCities);
+  
+  
+}    
+
 
 // Event listener for click on search button 
 
-$("#primary").on("click", function citySearched(){
+$("#mainSearch").on("click", function citySearched(){
   console.log("button clicked");
   var citySearched = $("#enterCity").val();
   console.log(citySearched)
 
   var cityName = $("<h1>");
   cityName.text(citySearched + " " + "(" + todaysDate + ")")
-  $("#cityDate").prepend(cityName)
+  $("#date").prepend(cityName)
 
   getAPI(citySearched)
+  storeCity(citySearched)
   
 })
