@@ -27,14 +27,53 @@ function getAPI(city) {
       })
     }
 
+function currentWeather(data) {
+  curWeatherDisplay = `
+    <div id="forecast-icon">
+      <img src="https://openweathermap.org/img/w/${data[0].weather[0].icon}.png">
+    </div>
+    <div>
+      <p> Temperature: ${data[0].main.temp} F </p>
+      <p> Humidity: ${data[0].main.humidity}% </p>
+      <p> Wind Speed: ${data[0].wind.speed} MPH </p>
+    </div>`
 
+    $("#weather-items").append(curWeatherDisplay);
+
+} 
+
+    function forecast(data) {
+  
+      for (let i = 1; i < data.length; i += 8) {
+    
+        forecastDisplay += `
+        <div class="col-2">
+        <h5> ${data[i].dt_txt} </h5>
+          <div id="forecast-icon">
+          <img src="https://openweathermap.org/img/w/${data[i].weather[0].icon}.png">
+          </div>
+            <p> Temperature: ${data[i].main.temp} F </p>
+            <p> Humidity: ${data[i].main.humidity}% </p>
+            <p> Wind Speed: ${data[i].wind.speed} MPH </p>
+        </div>`
+      }
+      $(".forecast-row").append(forecastDisplay);
+
+      console.log(data)
+    }
 
 
 // Event listener for click on search button 
 
-$("#primary").on("click", function citySearch(){
+$("#primary").on("click", function citySearched(){
   console.log("button clicked");
-  var citySearch = $("#enterCity").val();
-  console.log(citySearch)
+  var citySearched = $("#enterCity").val();
+  console.log(citySearched)
+
+  var cityName = $("<h1>");
+  cityName.text(citySearched + " " + "(" + todaysDate + ")")
+  $("#cityDate").prepend(cityName)
+
+  getAPI(citySearched)
   
 })
