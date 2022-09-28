@@ -83,7 +83,7 @@ function storeCity(location) {
 
 $("#mainSearch").on("click", function citySearched(){
   console.log("button clicked");
-  var citySearched = $("#enterCity").val();
+  var citySearched = $("#enterLoc").val();
   console.log(citySearched)
 
   var cityName = $("<h1>");
